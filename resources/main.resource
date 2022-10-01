@@ -2,6 +2,7 @@
 Documentation       Arquivo principal do projeto
 
 Library             Browser
+Library             factories/User.py
 
 Resource            Pages/login.Resource
 Resource            Pages/dash.resource
@@ -10,9 +11,9 @@ Resource            Pages/dash.resource
 
 *** Keywords ***
 Do Login
-
+    ${user}              Factory User     login
     Go To Login Page
-    Submit Credentials   papito@gmail.com  vaibrasil
+    Submit Credentials    ${user}
     User Logged In
 
 Start Test
